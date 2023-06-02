@@ -3,15 +3,16 @@ name: Unit Tests
 on:
   push:
     branches: [main]
-    paths: ["client/**"]
   pull_request:
     branches: [main]
-    paths: ["client/**"]
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./client
     steps:
       - uses: actions/checkout@v3
       - name: Setup Node
